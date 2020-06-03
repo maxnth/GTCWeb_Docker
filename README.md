@@ -1,4 +1,4 @@
-# `Ground Truth Correction/Production Web` Docker
+# Ground Truth Production Web Docker
 Docker image for [Ground Truth Production Web](https://github.com/OCR4all/ground_truth_production)
 
 ## Getting Started
