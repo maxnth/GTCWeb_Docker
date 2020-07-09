@@ -9,7 +9,7 @@ DOCKER_NAME="gtcweb"
 ## Image name
 IMAGE_NAME="gtcweb"
 
-## Local path to the directory containing the books
+DATA="."
 
 ## Port
 PORT=5555
@@ -25,5 +25,6 @@ docker build -t ${IMAGE_NAME} . && \
 docker run \
     -p ${PORT}:8080 \
     -u `id -u root`:`id -g $USER` \
+    -v ${DATA}:/Data/ \
     --name ${DOCKER_NAME} \
     -it ${IMAGE_NAME}

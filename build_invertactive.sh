@@ -9,8 +9,8 @@ read -p "Enter container name: " CONTAINER_NAME
 ## Image name
 read -p "Enter image name: " IMAGE_NAME
 
-## Local path to the directory containing the books
-read -p "Enter local book directory: " GTC_WEB_DIR
+## Local path to the directory containing the data
+read -p "Enter local data directory: " GTC_WEB_DIR
 
 ## Port
 read -p "Enter Port: " PORT
@@ -33,5 +33,6 @@ docker build -t ${IMAGE_NAME} . && \
 docker run \
     -p ${PORT}:8080 \
     -u `id -u root`:`id -g $USER` \
+    -v ${GTC_WEB_DIR}:/Data/ \
     --name ${CONTAINER_NAME} \
     -it ${IMAGE_NAME}
