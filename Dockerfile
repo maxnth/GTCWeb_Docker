@@ -1,5 +1,5 @@
 # Base Image
-FROM ubuntu:20.04
+FROM ubuntu:22.04
 
 ENV DEBIAN_FRONTEND=noninteractive
 
@@ -27,11 +27,6 @@ RUN python3 -m pip install --upgrade -r /tmp/requirements.txt && \
 # Set the locale, Solve Tomcat issues with Ubuntu
 RUN locale-gen en_US.UTF-8
 ENV LANG=en_US.UTF-8 LANGUAGE=en_US:en LC_ALL=en_US.UTF-8 CATALINA_HOME=/usr/share/tomcat9
-
-# Force tomcat to use java 8
-RUN rm /usr/lib/jvm/default-java && \
-    ln -s /usr/lib/jvm/java-1.8.0-openjdk-amd64 /usr/lib/jvm/default-java && \
-    update-alternatives --set java /usr/lib/jvm/java-8-openjdk-amd64/jre/bin/java
 
 RUN mkdir -p Data
 
